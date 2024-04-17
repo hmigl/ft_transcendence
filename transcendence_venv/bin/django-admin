@@ -1,4 +1,4 @@
-#!/Users/alexandre/Documents/ft_transcendence/transcendence_venv/bin/python
+#!/Users/alexandre/Documents/ft_transcendence/transcendence_venv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys

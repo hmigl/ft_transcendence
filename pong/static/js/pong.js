@@ -1,6 +1,6 @@
 let ctx, p1_y, p2_y, p1_points, p2_points
 let ball_y_orientation, ball_x_orientation, ball_x, ball_y
-let p1_key, p2_key
+let p1_keyUp, p1_keyDown, p2_keyUp, p2_keyDown
 const h=500, w=800, p_w=20, p_h=200, p1_x = 10, p2_x = w - p_w - 10
 function setup() {
 	const canvas = document.getElementById('canvas')
@@ -20,15 +20,40 @@ function setup() {
 }
 
 function loop() {
-	if(p1_key == 87 && p1_y > 0){
+	//Verifica se a bola está colidindo com o barra do player 1
+    if(ball_x >= p1_x && ball_x <= p1_x + 10 && ball_y >= p1_y && ball_y <= p1_y + p_h){
+        ball_x_orientation = 1
+    }
+    //Verifica se a bola está colidindo com o barra do player 2
+    else if(ball_x >= p2_x && ball_x <= p2_x + 10 && ball_y >= p2_y && ball_y <= p2_y + p_h){
+        ball_x_orientation = -1
+    }
+
+    // verifica se a bola bateu no chão ou no teto
+    if(ball_y + 10 >= h || ball_y <= 0) ball_y_orientation *= -1
+
+    //move a bola no eixo X e Y
+    ball_x += 5 * ball_x_orientation
+    ball_y += 5 * ball_y_orientation
+
+	if(ball_x+10 > w) {
+        p1_points++
+        initBall()
+    }
+    else if(ball_x < 0){
+        p2_points ++
+        initBall()
+    }
+
+	if(p1_keyUp == true && p1_y > 0){
         p1_y -= 10
-    }else if(p1_key == 83 && p1_y + p_h < h){
+    }else if(p1_keyDown == true && p1_y + p_h < h){
         p1_y += 10
     }
 
-    if(p2_key == 38 && p2_y > 0){
+    if(p2_keyUp == true && p2_y > 0){
         p2_y -= 10
-    }else if(p2_key == 40 && p2_y + p_h < h){
+    }else if(p2_keyDown == true && p2_y + p_h < h){
         p2_y += 10
     }
 	draw()
@@ -51,6 +76,17 @@ function draw(){
     drawRect(w/2 -5,0,5,h)
     // bola
     drawRect(ball_x, ball_y, 10, 10)
+	// pontuação
+	writePoints()
+}
+
+function writePoints(){
+    ctx.font = "50px monospace";
+    ctx.fillStyle = "#fff";
+    // w/4 = 1/4 da tela = metade da tela do player 1
+    ctx.fillText(p1_points, w/4, 50);
+    // 3*(w/4) = 3/4 da tela = metade da tela do player 2
+    ctx.fillText(p2_points, 3*(w/4), 50);
 }
 
 function initBall() {
@@ -61,14 +97,34 @@ function initBall() {
 	ball_y = h / 2 - 10
 }
 
-document.addEventListener("keydown",function(ev) {
+document.addEventListener("keydown", function(ev) {
 	// keyCode 87 = w, keycode 83 = s
-    if(ev.keyCode == 87 || ev.keyCode == 83){
-        p1_key = ev.keyCode
-    }
+    if(ev.key == "w") {
+        p1_keyUp = true
+    }else if (ev.key == "s") {
+		p1_keyDown = true
+	}
     // keycode 38 = arrowUp, keycode 40 = arrowDown
-    else if(ev.keyCode== 38 || ev.keyCode==40)
-        p2_key = ev.keyCode
+    if(ev.key == "ArrowUp")
+        p2_keyUp = true
+	else if (ev.key == "ArrowDown"){
+		p2_keyDown = true
+	}
+})
+
+document.addEventListener("keyup", function(ev) {
+	// keyCode 87 = w, keycode 83 = s
+    if(ev.key == "w") {
+        p1_keyUp = false
+    }else if (ev.key == "s") {
+		p1_keyDown = false
+	}
+    // keycode 38 = arrowUp, keycode 40 = arrowDown
+    if(ev.key == "ArrowUp")
+        p2_keyUp = false
+	else if (ev.key == "ArrowDown"){
+		p2_keyDown = false
+	}
 })
 
 setup()

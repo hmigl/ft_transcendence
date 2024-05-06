@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',\
-	'pong',
     'bootstrap5',
+	'pong',
+    'spa',
+    'authentication',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +63,15 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'spa/templates'),
+            os.path.join(BASE_DIR, 'pong/templates'),  
+            os.path.join(BASE_DIR, 'authentication/templates'),  
+            #se for ficar tudo num único folder:
+            #os.path.join(BASE_DIR, 'templates/')
+        ],
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,7 +142,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'spa/static'),
+    os.path.join(BASE_DIR, 'pong/static'),
+    os.path.join(BASE_DIR, 'authentication/static'),
+]
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#LOGIN_REDIRECT_URL = '/'

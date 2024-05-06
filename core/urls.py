@@ -14,13 +14,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.views.generic import TemplateView
+
 from .views import home
 from pong.views import pong
 
+#para criar uma página inicial que não é localhost:
+#from django.views.generic import RedirectView
+#path('', RedirectView.asview(url='authentication/login'))
+
 urlpatterns = [
+
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
-	path('pong/', pong, name='pong_game'),
+    path('', include('spa.urls')),
+    path('pong/', include('pong.urls')),
+    path('authentication/', include('authentication.urls')),
+
 ]

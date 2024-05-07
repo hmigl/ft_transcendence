@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',\
     'bootstrap5',
-	'pong',
-    'spa',
-    'authentication',
+	'app_pong',
+    'app_spa',
+    'app_authentication',
 ]
 
 MIDDLEWARE = [
@@ -65,9 +65,9 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'spa/templates'),
-            os.path.join(BASE_DIR, 'pong/templates'),  
-            os.path.join(BASE_DIR, 'authentication/templates'),  
+            os.path.join(BASE_DIR, 'app_spa/templates'),
+            os.path.join(BASE_DIR, 'app_pong/templates'),  
+            os.path.join(BASE_DIR, 'app_authentication/templates'),  
             #se for ficar tudo num único folder:
             #os.path.join(BASE_DIR, 'templates/')
         ],
@@ -119,7 +119,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'pong.CustomUser'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -143,9 +142,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'spa/static'),
-    os.path.join(BASE_DIR, 'pong/static'),
-    os.path.join(BASE_DIR, 'authentication/static'),
+    os.path.join(BASE_DIR, 'app_spa/static'),
+    os.path.join(BASE_DIR, 'app_pong/static'),
+    os.path.join(BASE_DIR, 'app_authentication/static'),
 ]
 
 

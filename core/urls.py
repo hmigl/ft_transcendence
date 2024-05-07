@@ -20,7 +20,7 @@ from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 
 from .views import home
-from pong.views import pong
+from app_pong.views import app_pong
 
 #para criar uma página inicial que não é localhost:
 #from django.views.generic import RedirectView
@@ -29,8 +29,8 @@ from pong.views import pong
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('', include('spa.urls')),
-    path('pong/', include('pong.urls')),
-    path('authentication/', include('authentication.urls')),
+    path('', include('app_spa.urls')),
+    path('pong/', include('app_pong.urls')),
+    path('authentication/', include('app_authentication.urls')),
 
 ]

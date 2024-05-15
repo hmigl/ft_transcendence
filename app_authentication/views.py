@@ -1,10 +1,8 @@
-from django.shortcuts import render
+from django.contrib.auth.views import LoginView
+from .forms import UserLoginForm
 
-def app_authentication(request):
-    return render(request, 'authentication.html')
+class CustonLoginView(LoginView):
+    template_name = 'authentication/login.html'
+    authentication_form = UserLoginForm
+    redirect_authenticated_user = True
 
-def logout(request):
-    return render(request, 'authentication/logout.html')
-
-def login(request):
-    return render(request, 'authentication/login.html')

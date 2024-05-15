@@ -29,8 +29,9 @@ from app_pong.views import app_pong
 urlpatterns = [
 
     path('admin/', admin.site.urls),
+    path('app_pong/', TemplateView.as_view(template_name='spa/index.html')),
     path('', include('app_spa.urls')),
-    path('pong/', include('app_pong.urls')),
-    path('authentication/', include('app_authentication.urls')),
+    #path('app_pong/', include('app_pong.urls')),
+    path('app_authentication/', include('app_authentication.urls')),
 
 ]

@@ -1,0 +1,33 @@
+/* spa/static/css/index.css */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+
+}
+
+#app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+/* Estilos para o jogo Pong */
+#canvas {
+    display: block;
+    margin: 0 auto; /* Centralizar o canvas horizontalmente */
+    background-color: #000; /* Cor de fundo preta */
+}
+
+/* Outras regras de estilo para o jogo Pong... */
+
+
+

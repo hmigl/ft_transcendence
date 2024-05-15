@@ -68,8 +68,6 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'app_spa/templates'),
             os.path.join(BASE_DIR, 'app_pong/templates'),  
             os.path.join(BASE_DIR, 'app_authentication/templates'),  
-            #se for ficar tudo num único folder:
-            #os.path.join(BASE_DIR, 'templates/')
         ],
 
         'APP_DIRS': True,
@@ -147,6 +145,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'app_authentication/static'),
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Default primary key field type

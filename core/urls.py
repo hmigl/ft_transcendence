@@ -19,19 +19,19 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 
-from .views import home
-from app_pong.views import app_pong
+#from app_pong.views import app_pong
 
 #para criar uma página inicial que não é localhost:
 #from django.views.generic import RedirectView
-#path('', RedirectView.asview(url='authentication/login'))
+#path('', RedirectView.asview(url='auth/login'))
 
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('app_pong/', TemplateView.as_view(template_name='spa/index.html')),
     path('', include('app_spa.urls')),
+    path('app_auth/', include('app_auth.urls')),
+
     #path('app_pong/', include('app_pong.urls')),
-    path('app_authentication/', include('app_authentication.urls')),
+    #path('app_pong/', TemplateView.as_view(template_name='spa/index.html')),
 
 ]

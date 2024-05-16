@@ -3,30 +3,27 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transcendence Pong Game</title>
     <link rel="icon" href="{% static 'favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-
-    <!-- Bootstrap CSS -->
     {% bootstrap_css %}
-
+    {% block stylesheet %} {% endblock %}
 </head>
+
 <body>
-    
-    <div id="app">
-        <!-- Conteúdo dinâmico será injetado aqui %} -->
-    </div>
+    <main>
+         <!-- Conteúdo dinâmico será injetado aqui %} -->
+        {% block content %} {% endblock %}
+    </main>   
+ </body>
 
-
-
-
-    <!-- Bootstrap JavaScript e dependências -->
+{% block scripts %}
     {% bootstrap_javascript %}
-
     <script type="module" src="{% static 'js/spa.js' %}"></script>
+{% endblock %}
 
-</body>
 </html>

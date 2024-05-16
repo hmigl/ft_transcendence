@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'bootstrap5',
 	'app_pong',
     'app_spa',
-    'app_authentication',
+    'app_auth',
 ]
 
 MIDDLEWARE = [
@@ -67,7 +67,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'app_spa/templates'),
             os.path.join(BASE_DIR, 'app_pong/templates'),  
-            os.path.join(BASE_DIR, 'app_authentication/templates'),  
+            os.path.join(BASE_DIR, 'app_auth/templates'),  
         ],
 
         'APP_DIRS': True,
@@ -142,10 +142,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'app_spa/static'),
     os.path.join(BASE_DIR, 'app_pong/static'),
-    os.path.join(BASE_DIR, 'app_authentication/static'),
+    os.path.join(BASE_DIR, 'app_auth/static'),
 ]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Default primary key field type

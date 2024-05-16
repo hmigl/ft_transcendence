@@ -1,33 +1,34 @@
-// spa.js
-
-console.log('spa.js disparado');
-
-import { loadPongContent } from '../../../static/js/pongLoader.js';
-// import { loadAuthenticationContent } from '../../../authentication/static/js/contentLoader.js';
-import { loadHomeContent } from './spaLoader.js';
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    console.log('DOM disparado');
-
-    handleRouteChange();
-    window.addEventListener('popstate', handleRouteChange);
+/*document.addEventListener('DOMContentLoaded', function () {
+    const loginButton = document.querySelector(".btn.btn-primary");
+    loginButton.addEventListener("click", function () {
+        window.location.href = loginURL;
+    });
 });
+*/
 
-function handleRouteChange() {
-
-    console.log('handleRouteChange() chamada');
-
-    const path = window.location.pathname;
-    if (path === '/app_pong/') {
-        console.log('no if do pong');
-        loadPongContent();
-    } else if (path === '/app_authentication') {
-        loadAuthenticationContent();
-    } else if (path === '/') {
-        loadHomeContent();
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('DOM fully loaded and parsed');
+    
+    // Verifique se estamos no index.html verificando a presença do elemento único
+    if (document.getElementById('index-page')) {
+        function findLoginButton() {
+            const loginButton = document.querySelector("#login-button");
+            if (loginButton) {
+                console.log('Login button found:', loginButton);  // Log para verificar se o botão foi encontrado
+                
+                loginButton.addEventListener("click", function () {
+                    console.log('Login button clicked');  // Log para verificar se o evento de clique foi registrado
+                    console.log('Redirecting to:', loginURL);  // Log para verificar a URL de login
+                    window.location.href = loginURL;  // Redireciona na mesma aba
+                });
+            } else {
+                console.log('Login button not found');  // Log se o botão não foi encontrado
+                setTimeout(findLoginButton, 500);  // Tente novamente após 500ms
+            }
+        }
+        
+        findLoginButton();
     } else {
-        console.log('HELLOOOOOOOO!!!!')
-    //     loadNotFoundContent();
+        console.log('Index page not present on this page');  // Log se a página index não estiver presente
     }
-}
+});

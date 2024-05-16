@@ -1,0 +1,21 @@
+{% extends 'app_spa/base.html' %}
+{% load static %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static '/css/login.css' %}">
+{% endblock stylesheet %}
+
+{% block content %}
+<div class="background-image" style="background-image: url('{% static 'images/pong_index1.webp' %}');"></div>
+<div class="container">
+    <h1>Você está na página de login!</h1>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static '/js/auth.js' %}"></script>
+{% endblock scripts %}

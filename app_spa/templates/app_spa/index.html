@@ -1,0 +1,23 @@
+{% extends 'app_spa/base.html' %}
+{% load static %}
+
+{% block title %}
+Transcendence
+{% endblock title %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static '/css/index.css' %}">
+{% endblock stylesheet %}
+
+{% block content %}
+<div class="background-image" style="background-image: url('{% static 'images/pong_index.webp' %}');"></div>
+<div class="container" id="index-page">
+    <h1>Pong Game</h1>
+    <button class="btn btn-primary" id="login-button">Login</button>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script>const loginURL = "{% url 'login' %}"</script>
+<script src="{% static '/js/spa.js' %}"></script>
+{% endblock scripts %}

@@ -1,7 +1,20 @@
-<!-- spa/templates/pong/pong.html -->
-
+{% extends 'app_spa/base.html' %}
 {% load static %}
 
-<script defer src="{% static 'js/pong.js' %}"></script>
-<canvas id="canvas" width="1600" height="1000"></canvas>
-<h1>Pong Game</h1>
+{% block title %}
+    Pong
+{% endblock title %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static '/css/pong.css' %}">
+{% endblock stylesheet %}
+
+{% block content %}
+<div class="container">
+    <canvas class="canvas" id="canvas" width="1600" height="1000"></canvas>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static '/js/pong.js' %}"></script>
+{% endblock scripts %}

@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def app_pong(request):
-    return render(request, 'pong/pong.html')
+def pong(request):
+    return render(request, 'app_pong/pong.html')

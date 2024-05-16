@@ -30,8 +30,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app_spa.urls')),
     path('app_auth/', include('app_auth.urls')),
+    path('app_pong/', include('app_pong.urls')),
 
-    #path('app_pong/', include('app_pong.urls')),
     #path('app_pong/', TemplateView.as_view(template_name='spa/index.html')),
 
 ]

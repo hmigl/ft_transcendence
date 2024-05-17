@@ -55,7 +55,7 @@ function colision() {
 		ball_x_orientation = -1
 	}
 	// verifica se a bola bateu no chão ou no teto
-	if(ball_y + 10 >= h || ball_y <= 0) 
+	if(ball_y + 10 >= h || ball_y <= 0)
 		ball_y_orientation *= -1
 
 	// verifica se player pontuou 

@@ -1,21 +1,14 @@
-const canvas = document.getElementById('pongCanvas')
+const canvas = document.getElementById('canvas')
 ctx = canvas.getContext('2d')
-const socket = new WebSocket('ws://localhost:8000/pong/')
+const socket = new WebSocket(`ws://${window.location.host}/ws/pong/`)
+const h=500, w=800, p_w=10, p_h=200
 const p1_x = 10
 const p2_x = canvas.width - 20
 const p1_y = 0
 const p2_y = 0
 
-
-
-var game_data = {
-	p1_y, p2_y, p1_points, p2_points
-}
-
 function draw() {
-	ctx.fillStyle = 'black';
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-	drawRect(canvas.width/2 -5,0,5,canvas.height);
+	//fundo
 	drawRect(0,0,w,h,"#000")
 	// player 1
 	drawRect(p1_x, p1_y, p_w, p_h)

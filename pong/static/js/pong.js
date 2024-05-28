@@ -114,7 +114,6 @@ function writePoints(){
 }
 
 function initBall() {
-	console.log(`${p1_points} VS ${p2_points}`)
 	ball_y_orientation = Math.pow(2, Math.floor(Math.random() * 2)+1) - 3
 	ball_x_orientation = Math.pow(2, Math.floor(Math.random() * 2)+1) - 3
 	ball_x = w / 2 - 10

@@ -2,14 +2,6 @@
 <!DOCTYPE html>
 <body>
     <canvas id="canvas" width="800" height="500"></canvas>
-	<script type="text/javascript">
-		let url = `ws://${window.location.host}/ws/pong/`
-		let socket = new WebSocket(url)
-
-		socket.onmessage = function(e) {
-			data = JSON.parse(e.data)
-			console.log('Data: ', data)
-		}
-	</script>
+	<script src="{% static 'js/pong.js' %}"></script>
 </body>
 </html>

@@ -4,8 +4,8 @@ const socket = new WebSocket(`ws://${window.location.host}/ws/pong/`)
 const h=500, w=800, p_w=10, p_h=200
 const p1_x = 10
 const p2_x = canvas.width - 20
-const p1_y = 0
-const p2_y = 0
+p1_y = 0
+p2_y = 0
 
 function draw() {
 	//fundo
